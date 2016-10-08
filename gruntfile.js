@@ -5,9 +5,6 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         cssmin: {
             sitecss: {
-                options: {
-                    root: './'
-                },
                 files: {
                     'css/bundle.css': [
                         'bower_components/materialize/bin/materialize.css',
