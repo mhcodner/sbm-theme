@@ -64,3 +64,16 @@ function sbm_scripts()
     wp_enqueue_script('sbm-main', get_template_directory_uri() . '/js/bundle.js', array(), '', true);
 }
 add_action('wp_enqueue_scripts', 'sbm_scripts');
+
+function js_vars() {
+    ?>
+    <script>
+        var themeSettings = {
+            themeUri: '<?php echo get_template_directory_uri(); ?>',
+            siteURL: '<?php echo get_site_url(); ?>',
+            siteTitle: '<?php echo get_bloginfo('name') ?>',
+            siteTagLine: '<?php echo get_bloginfo('description'); ?>',
+        };
+    </script>
+<?php }
+add_action( 'wp_footer', 'js_vars', 10 );
