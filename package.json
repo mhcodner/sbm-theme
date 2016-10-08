@@ -1,0 +1,24 @@
+{
+  "name": "sbm",
+  "version": "1.0.0",
+  "description": "WP theme for https://solarbundeenamaianbar.org",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhcodner/sbm-theme.git"
+  },
+  "author": "mhcodner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mhcodner/sbm-theme/issues"
+  },
+  "homepage": "https://github.com/mhcodner/sbm-theme#readme",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-qunit": "^1.2.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "matchdep": "^1.0.1"
+  }
+}
