@@ -12,8 +12,9 @@
     "url": "https://github.com/mhcodner/sbm-theme/issues"
   },
   "homepage": "https://github.com/mhcodner/sbm-theme#readme",
-  "dependencies": {
+  "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.2",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-qunit": "^1.2.0",
