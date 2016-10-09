@@ -1,5 +1,5 @@
 var baseThemeURI = themeSettings.themeUri;
-var SBM = angular.module('SBM', ['ngRoute'])
+var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         /**
          *    Configure routes

@@ -23,6 +23,7 @@ module.exports = function (grunt) {
                     'bower_components/jquery/dist/jquery.min.js',
                     'bower_components/angular/angular.min.js',
                     'bower_components/angular-route/angular-route.min.js',
+                    'bower_components/angular-sanitize/angular-sanitize.min.js',
                     'bower_components/materialize/bin/materialize.js',
                     'js/app.js',
                     'js/main.js'
