@@ -17,7 +17,7 @@
     <nav class="green darken-2">
         <div class="nav-wrapper">
             <div class="container">
-                <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-large-only black-text"><i class="mdi-navigation-menu"></i></a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-large-only black-text"><i class="fa fa-bars"></i></a>
                 <a href="/" class="brand-logo">
                     <img src="http://placehold.it/200x64?text=SolarBM" alt="Logo">
                 </a>
