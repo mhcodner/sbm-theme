@@ -8,6 +8,10 @@ var SBM = angular.module('SBM', ['ngRoute'])
             .when('/', {
                 templateUrl: baseThemeURI + '/partials/index.html'
             })
+            .when('/:page/', {
+                templateUrl: baseThemeURI + '/partials/page.html',
+                controller: 'GetPage'
+            })
 
         /**
          *    Remove # from the URL with $locationProvider
@@ -30,5 +34,23 @@ var SBM = angular.module('SBM', ['ngRoute'])
                     console.log(response.error);
                 }
             });
+
+    })
+    .controller('GetPage', function ($scope, $rootScope, $http, $location, $window) {
+
+        /**
+         *    Perform a GET request on the API and pass the slug to it using $location.url()
+         *    On success, pass the data to the view through $scope.page
+         */
+        $http.get('/api/get_page/?slug=' + $location.url(), {cache: true})
+            .success(function (data) {
+                $scope.page = data.page;
+
+                // Inject the title into the rootScope
+                $rootScope.title = data.page.title;
+            })
+            .error(function () {
+                console.log("We have been unable to access the feed :-(");
+            })
 
     })
