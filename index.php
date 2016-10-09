@@ -17,14 +17,14 @@
     <nav class="green darken-2">
         <div class="nav-wrapper">
             <div class="container">
-                <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-large-only black-text"><i class="fa fa-bars"></i></a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-large-only"><i class="fa fa-bars"></i></a>
                 <a href="/" class="brand-logo">
                     <img src="http://placehold.it/200x64?text=SolarBM" alt="Logo">
                 </a>
                 
                 <div class="top-nav">
                     <ul class="right hide-on-med-and-down" ng-controller="MenuController">
-                        <li ng-repeat="item in menuItems" ng-class="{ active:isActive(item.url) }"><a class="black-text" ng-href="{{ item.url }}">{{ item.title }}</a></li>
+                        <li ng-repeat="item in menuItems" ng-class="{ active:isActive(item.url) }"><a ng-href="{{ item.url }}">{{ item.title }}</a></li>
                     </ul>
                 </div>
                 <ul id="nav-mobile" class="side-nav" ng-controller="MenuController">
