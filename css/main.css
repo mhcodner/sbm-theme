@@ -7,3 +7,32 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+a {
+    outline: 0;
+}
+
+.view-animate {
+    transition: all 0.3s ease-in-out;
+}
+
+.view-animate.ng-enter {
+    opacity: 0;
+}
+
+.view-animate.ng-enter.ng-enter-active {
+    transition-delay: 0.5s;
+    opacity: 1;
+}
+
+.view-animate.ng-leave {
+    opacity: 1;
+}
+
+.view-animate.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
