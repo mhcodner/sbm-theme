@@ -4,6 +4,9 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         cssmin: {
+            options: {
+                keepSpecialComments: 0
+            },
             sitecss: {
                 files: {
                     'css/bundle.css': [
