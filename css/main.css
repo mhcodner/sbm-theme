@@ -36,3 +36,15 @@ a {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
+
+@media (max-width: 992px) {
+    nav .nav-wrapper {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem !important;
+        text-align: center;
+        padding-top: 5px;
+    }
+}
