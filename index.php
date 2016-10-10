@@ -24,11 +24,15 @@
 
                 <div class="top-nav">
                     <ul class="right hide-on-med-and-down" ng-controller="MenuController">
-                        <li ng-repeat="item in menuItems" ng-class="{ active:isActive(item.url) }"><a ng-href="{{ item.url }}">{{ item.title }}</a></li>
+                        <li ng-repeat="item in menuItems" ng-class="{ active:isActive(item.url) }">
+                            <a ng-href="{{ item.url }}">{{ item.title }}</a>
+                        </li>
                     </ul>
                 </div>
                 <ul id="nav-mobile" class="side-nav" ng-controller="MenuController">
-                    <li ng-repeat="item in menuItems"><a class="waves-effect waves-teal" ng-class="{ active:isActive(item.url) }" ng-href="{{ item.url }}">{{ item.title }}</a></li>
+                    <li ng-repeat="item in menuItems">
+                        <a class="waves-effect waves-teal" ng-class="{ active:isActive(item.url) }" ng-href="{{ item.url }}">{{ item.title }}</a>
+                    </li>
                 </ul>
                 
             </div>
