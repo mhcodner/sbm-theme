@@ -6,3 +6,7 @@ jQuery(document).ready(function ($) {
     });
     $(".button-collapse").sideNav();
 });
+
+function initParallax () {
+	$('.parallax').parallax();
+}

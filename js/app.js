@@ -6,7 +6,8 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize', 'ngAnimate'])
          */
         $routeProvider
             .when('/', {
-                templateUrl: baseThemeURI + '/partials/index.html'
+                templateUrl: baseThemeURI + '/partials/index.html',
+                controller: 'GetIndex'
             })
             .when('/:page/', {
                 templateUrl: baseThemeURI + '/partials/page.html',
@@ -36,6 +37,9 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize', 'ngAnimate'])
             });
 
     })
+    .controller('GetIndex', function ($scope, $rootScope) {
+        $scope.baseThemeURI = baseThemeURI;
+    })
     .controller('GetPage', function ($scope, $rootScope, $http, $location, $window) {
 
         /**
@@ -53,4 +57,7 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize', 'ngAnimate'])
                 console.log("We have been unable to access the feed :-(");
             })
 
+    })
+    .directive('initParallax', function () {
+        initParallax(); 
     })
