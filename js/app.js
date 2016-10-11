@@ -59,5 +59,5 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize', 'ngAnimate'])
 
     })
     .directive('initParallax', function () {
-        initParallax(); 
+        return function () { initParallax() };
     })
