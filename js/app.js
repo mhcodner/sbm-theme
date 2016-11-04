@@ -1,5 +1,5 @@
 var baseThemeURI = themeSettings.themeUri;
-var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize', 'ngAnimate'])
+var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         /**
          *    Configure routes
@@ -59,5 +59,5 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize', 'ngAnimate'])
 
     })
     .directive('initParallax', function () {
-        return function () { initParallax() };
+        return function () { console.log("directive"); initParallax(); };
     })
