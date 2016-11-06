@@ -50,6 +50,8 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
             .success(function (data) {
                 $scope.page = data.page;
 
+                $scope.content = targetLinks(data.page.content);
+
                 // Inject the title into the rootScope
                 $rootScope.title = data.page.title;
             })
