@@ -23,8 +23,8 @@ function targetLinks(htmlText) {
         var newAnchor = tmp.innerHTML;
         // Make local links relative
         newAnchor = newAnchor.replace(themeSettings.siteURL, '');
-        // Most links that need to be "fixed" will be attachments
-        if (anchors[i].href.indexOf("/wp-content/uploads/") != -1) {
+        // Links that need to be "fixed" will be local
+        if (anchors[i].href.indexOf("/wp-") != -1) {
             // Replaces the link with a link that opens in new tab/window which works with angular routing
             newAnchor = newAnchor.replace('">', '" target="_blank">');
         }
