@@ -9,6 +9,10 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
                 templateUrl: baseThemeURI + '/partials/index.html',
                 controller: 'GetIndex'
             })
+            .when('/contact/', {
+                templateUrl: baseThemeURI + '/partials/contact.html',
+                controller: 'GetPage'
+            })
             .when('/:page/', {
                 templateUrl: baseThemeURI + '/partials/page.html',
                 controller: 'GetPage'
@@ -59,6 +63,40 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
                 console.log("We have been unable to access the feed :-(");
             })
 
+    })
+    .controller('ContactController', function ($scope, $http) {
+        $scope.isSaving = undefined;
+
+        $scope.contact = {
+            name: '',
+            email: '',
+            message: ''
+        };
+        var contactOriginal = angular.copy($scope.contact);
+
+        $scope.submitForm = function (isValid) {
+
+            // check to make sure the form is completely valid
+            if (isValid) {
+                $scope.isSaving = true;
+
+                $http.post('/api/contact/send_message/', $scope.contact).
+                    then(function (response) {
+                        $scope.isSaving = false;
+                        $scope.contact = angular.copy(contactOriginal);
+                        $scope.contactForm.$setPristine();
+                        if (response.error) {
+                            alert(response.error);
+                        }
+                    }, function (response) {
+                        $scope.isSaving = false;
+                        if (response.error) {
+                            alert(response.error);
+                        }
+                    });
+            }
+
+        };
     })
     .directive('initParallax', function () {
         return function () { initParallax(); };
