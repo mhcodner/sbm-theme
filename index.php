@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <?php ob_start('fix_links'); wp_head(); ?>
+    <?php wp_head(); ?>
 </head>
 <body ng-cloak>
 
@@ -56,6 +56,6 @@
     </div>
 </footer>
 
-<?php wp_footer(); ob_end_flush(); ?>
+<?php wp_footer(); ?>
 </body>
 </html>

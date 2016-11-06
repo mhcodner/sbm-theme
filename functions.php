@@ -77,7 +77,3 @@ function js_vars() {
     </script>
 <?php }
 add_action( 'wp_footer', 'js_vars', 10 );
-
-function fix_links($input) {
-    return str_replace(get_site_url(), '', $input);
-}
