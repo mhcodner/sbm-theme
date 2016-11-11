@@ -80,7 +80,7 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
             })
 
     })
-    .controller('GetPost', function ($scope, $rootScope, $http, $location, $window) {
+    .controller('GetPost', function ($scope, $rootScope, $http, $location, $routeParams) {
 
         /**
          *  Call the get_post method from the API and pass to it the
@@ -143,7 +143,7 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
         };
     })
     .directive('initParallax', function () {
-        return function () { initParallax(); };
+        return function () { setTimeout(initParallax, 0); };
     })
     .directive('initCollapse', function () {
         return {
