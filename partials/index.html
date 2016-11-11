@@ -6,6 +6,20 @@
 </div>
 <div class="row">
 	<div class="col m6 offset-m3 s12">
+		<h2 class="center">News</h2>
+		<ul class="collapsible" data-collapsible="accordion">
+			<li ng-repeat="post in posts" init-collapse>
+				<div class="collapsible-header" ng-class="{ 'active': $first }" ng-bind-html="post.title"></div>
+				<div class="collapsible-body">
+					<div ng-bind-html="post.excerpt"></div>
+					<a class="post-link" ng-href="{{ '/post/' + post.slug }}">Full post</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="row">
+	<div class="col m6 offset-m3 s12">
 		<h2 class="center">FAQ</h1>
 		<ul class="collection">
 			<li class="collection-item avatar">

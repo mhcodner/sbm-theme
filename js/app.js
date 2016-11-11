@@ -13,6 +13,18 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
                 templateUrl: baseThemeURI + '/partials/contact.html',
                 controller: 'GetPage'
             })
+            .when('/blog/', {
+                templateUrl: baseThemeURI + '/partials/blog.html',
+                controller: 'ListPost'
+            })
+            .when('/blog/page/:page', {
+                templateUrl: baseThemeURI + '/partials/blog.html',
+                controller: 'ListPost'
+            })
+            .when('/post/:post/', {
+                templateUrl: baseThemeURI + '/partials/post.html',
+                controller: 'GetPost'
+            })
             .when('/:page/', {
                 templateUrl: baseThemeURI + '/partials/page.html',
                 controller: 'GetPage'
@@ -41,8 +53,12 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
             });
 
     })
-    .controller('GetIndex', function ($scope, $rootScope) {
+    .controller('GetIndex', function ($scope, $rootScope, $http) {
         $scope.baseThemeURI = baseThemeURI;
+
+        $http.get('/api/get_posts/?posts_per_page=5', {cache: true}).success(function (data) {
+            $scope.posts = data.posts;
+        });
     })
     .controller('GetPage', function ($scope, $rootScope, $http, $location, $window) {
 
@@ -58,6 +74,34 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
 
                 // Inject the title into the rootScope
                 $rootScope.title = data.page.title;
+            })
+            .error(function () {
+                console.log("We have been unable to access the feed :-(");
+            })
+
+    })
+    .controller('GetPost', function ($scope, $rootScope, $http, $location, $window) {
+
+        /**
+         *  Call the get_post method from the API and pass to it the
+         *  value of $routeParams.post, which is actually the post slug
+         */
+        var url = '/api/get_post/?slug=' + $routeParams.post;
+        if ($location.search().preview === 'true') {
+            url += '&preview=true&preview_id=' + $location.search().preview_id + '&preview_nonce=' + $location.search().preview_nonce;
+        }
+        var currentPost;
+
+        /**
+         *    Perform a GET request on the API and pass the slug to it using $location.url()
+         *    On success, pass the data to the view through $scope.page
+         */
+        $http.get(url, {cache: true})
+            .success(function (data) {
+                $scope.post = data.post;
+
+                // Inject the title into the rootScope
+                $rootScope.title = data.post.title;
             })
             .error(function () {
                 console.log("We have been unable to access the feed :-(");
@@ -100,4 +144,15 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
     })
     .directive('initParallax', function () {
         return function () { initParallax(); };
+    })
+    .directive('initCollapse', function () {
+        return {
+            restrict: 'A',
+            transclude: false,
+            link: function(scope) {
+                if (scope.$last) {
+                    setTimeout(initCollapse, 0);
+                }
+            }
+        }
     })
