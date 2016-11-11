@@ -66,3 +66,8 @@ footer.page-footer {
     height: 500px;
     max-height: calc(100vh - 64px);
 }
+
+a.post-link {
+    padding: 0 2rem 10px;
+    display: block;
+}
