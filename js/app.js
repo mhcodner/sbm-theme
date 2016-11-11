@@ -59,6 +59,10 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
         $http.get('/api/get_posts/?posts_per_page=5', {cache: true}).success(function (data) {
             $scope.posts = data.posts;
         });
+
+        $scope.$on('$viewContentLoaded', function() {
+            initParallax();
+        });
     })
     .controller('GetPage', function ($scope, $rootScope, $http, $location, $window) {
 
@@ -141,9 +145,6 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
             }
 
         };
-    })
-    .directive('initParallax', function () {
-        return function () { setTimeout(initParallax, 0); };
     })
     .directive('initCollapse', function () {
         return {
