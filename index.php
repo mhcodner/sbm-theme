@@ -19,7 +19,7 @@
             <div class="container">
                 <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-large-only"><i class="fa fa-angle-right"></i></a>
                 <a href="/" class="brand-logo">
-                    <img src="http://placehold.it/200x64?text=SolarBM" alt="Logo">
+                    <img src="//placehold.it/200x64?text=SolarBM" alt="Logo">
                 </a>
 
                 <div class="top-nav">
