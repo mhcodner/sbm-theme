@@ -7,6 +7,10 @@ jQuery(document).ready(function ($) {
     $(".button-collapse").sideNav();
 });
 
+function initCollapse() {
+    $('.collapsible').collapsible();
+}
+
 function initParallax () {
     $('.parallax').parallax();
 }
