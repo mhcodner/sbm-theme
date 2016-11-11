@@ -40,7 +40,7 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
             return route.replace(themeSettings.siteURL, '') === $location.path();
         };
 
-        $http.get('/api/menu/get_menu/').
+        $http.get('/api/menu/get_menu/', {cache: true}).
             then(function (response) {
                 $scope.menuItems = response.data.menuItems;
                 if (response.error) {
@@ -58,10 +58,6 @@ var SBM = angular.module('SBM', ['ngRoute', 'ngSanitize'])
 
         $http.get('/api/get_posts/?posts_per_page=5', {cache: true}).success(function (data) {
             $scope.posts = data.posts;
-        });
-
-        $scope.$on('$viewContentLoaded', function() {
-            initParallax();
         });
     })
     .controller('GetPage', function ($scope, $rootScope, $http, $location, $window) {

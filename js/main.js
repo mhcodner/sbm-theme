@@ -11,10 +11,6 @@ function initCollapse() {
     $('.collapsible').collapsible();
 }
 
-function initParallax () {
-    $('.parallax').parallax();
-}
-
 function targetLinks(htmlText) {
     var div,
         anchors;
